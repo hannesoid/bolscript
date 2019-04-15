@@ -5,7 +5,8 @@ import javax.script.ScriptException;
 
 import basics.Debug;
 import bolscript.config.GuiConfig;
-
+import java.awt.desktop.*;
+/*
 import com.apple.eawt.Application;
 import com.apple.eawt.AppEventListener;
 import com.apple.eawt.Application;
@@ -16,12 +17,12 @@ import com.apple.eawt.QuitStrategy;
 import com.apple.eawt.AppEvent.PreferencesEvent;
 import com.apple.eawt.AppEvent.QuitEvent;
 import com.apple.eawt.ApplicationEvent;
-import com.apple.eawt.ApplicationListener;
+import com.apple.eawt.ApplicationListener;*/
 
 // https://developer.apple.com/library/archive/technotes/tn2007/tn2196.html
 
-
-public class MasterMac extends Master implements ApplicationListener {
+/*
+public class MasterMac extends Master {
 	
 	@Override
 	public void revealFileInOSFileManager(String filename) {
@@ -107,3 +108,4 @@ public class MasterMac extends Master implements ApplicationListener {
 }
 
 
+*/
