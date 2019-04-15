@@ -10,7 +10,10 @@ import com.apple.eawt.Application;
 import com.apple.eawt.ApplicationEvent;
 import com.apple.eawt.ApplicationListener;
 
-public class MasterMac extends Master implements ApplicationListener{
+// https://developer.apple.com/library/archive/technotes/tn2007/tn2196.html
+
+
+public class MasterMac extends Master implements ApplicationListener {
 	
 	@Override
 	public void revealFileInOSFileManager(String filename) {

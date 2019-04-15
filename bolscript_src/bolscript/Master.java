@@ -36,7 +36,6 @@ import java.util.regex.Pattern;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
-import org.junit.Test;
 
 import midi.MidiStationSimple;
 import basics.Debug;
