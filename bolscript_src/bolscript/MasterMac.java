@@ -1,4 +1,5 @@
-import bolscript.Master;
+package bolscript;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.desktop.QuitEvent;
