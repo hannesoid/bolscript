@@ -1,0 +1,14 @@
+plugins {
+    id "edu.sc.seis.macAppBundle" version "2.1.0"
+}
+
+macAppBundle {
+    mainClassName = "bolscript.MasterMac"
+    // bundleIdentifier = "at.hannesoid.bolscript.mac"
+    icon = "resources/bolscript_logo.icns"
+    bundleJRE = true
+    javaProperties.put("apple.laf.useScreenMenuBar", "true")
+    backgroundImage = "doc/macbackground.png"
+    appName = "Bolscript"
+    dmgName = "Bolscript"
+}
