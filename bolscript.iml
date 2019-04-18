@@ -35,5 +35,10 @@
     <orderEntry type="library" name="Maven: com.sun.istack:istack-commons-runtime:3.0.8" level="project" />
     <orderEntry type="library" name="Maven: org.jvnet.staxex:stax-ex:1.8.1" level="project" />
     <orderEntry type="library" name="Maven: com.sun.xml.fastinfoset:FastInfoset:1.2.16" level="project" />
+    <orderEntry type="library" name="Maven: org.swixml:swixml:2.6.20130530" level="project" />
+    <orderEntry type="library" name="Maven: commons-beanutils:commons-beanutils:1.7.0" level="project" />
+    <orderEntry type="library" name="Maven: commons-logging:commons-logging:1.0.3" level="project" />
+    <orderEntry type="library" name="Maven: javax.jnlp:jnlp:1.6" level="project" />
+    <orderEntry type="library" name="Maven: com.apple:AppleJavaExtensions:1.4" level="project" />
   </component>
 </module>

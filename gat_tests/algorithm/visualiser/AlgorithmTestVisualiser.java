@@ -2,6 +2,7 @@ package algorithm.visualiser;
 
 import gui.graphs.ResultsGraph;
 
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
@@ -16,7 +17,7 @@ import javax.swing.JTextField;
 import org.swixml.SwingEngine;
 
 
-public class AlgorithmTestVisualiser implements ActionListener, WindowListener{
+public class AlgorithmTestVisualiser extends Container implements ActionListener, WindowListener{
 	public JFrame frame;
 	public JButton start, stop;
 	public JPanel panelPlot;

@@ -32,5 +32,13 @@
             <artifactId>jaxb-runtime</artifactId>
             <version>2.3.2</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.swixml/swixml -->
+        <dependency>
+            <groupId>org.swixml</groupId>
+            <artifactId>swixml</artifactId>
+            <version>2.6.20130530</version>
+        </dependency>
+
+
     </dependencies>
 </project>
