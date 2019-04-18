@@ -4,13 +4,13 @@ import static bolscript.sequences.Representable.BOL;
 import static bolscript.sequences.Representable.FOOTNOTE;
 import static bolscript.sequences.Representable.KARDINALITY_MODIFIER;
 import static bolscript.sequences.Representable.LINE_BREAK;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.fail;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import basics.Debug;
 import bols.Bol;
@@ -66,7 +66,7 @@ public class SequenceParserTest {
 		assertEquals(1, seq.get(0).getTextReference().end());
 		
 		assertEquals(Representable.FAILED, seq.get(2).getType());
-		assertEquals("_##", ((FailedUnit)seq.get(2)).getObject());
+		assertEquals(((FailedUnit)seq.get(2)).getObject(), "_##")
 		assertEquals(6, seq.get(2).getTextReference().start());
 		assertEquals(9, seq.get(2).getTextReference().end());
 		

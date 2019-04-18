@@ -1,10 +1,10 @@
 package bolscript;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.awt.Dimension;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import bols.tals.LayoutChooser;
 import bols.tals.LayoutCycle;

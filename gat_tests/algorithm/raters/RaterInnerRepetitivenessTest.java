@@ -39,19 +39,19 @@ public class RaterInnerRepetitivenessTest extends TestCase {
 		
 		var1 = new Variation("Dha Dhin Dhin Dha, Na Na Na Na, Dha Ge Dhin Dha, Tun Na Ge Na", bb);
 		in1 = new Individual(var1);
-		assertEquals("should be rated 0", 0f, rater.rate(in1).value);
+		assertEquals(0f, rater.rate(in1).value, "should be rated 0")
 	
 		var1 = new Variation("Dha Dhin Dhin Dha, Dha Dhin Dhin Dha, Dha Ge Dhin Dha, Tun Na Ge Na", bb);
 		in1 = new Individual(var1);
-		assertEquals("should be rated 1", 1f, rater.rate(in1).value);
+		assertEquals(1f, rater.rate(in1).value, "should be rated 1")
 		
 		var1 = new Variation("Dha Dhin Dhin Dha, Dha Dhin Dhin Dha, Dha Ge Dhin Dha, Dha Ge Dhin Dha", bb);
 		in1 = new Individual(var1);
-		assertEquals("should be rated 2", 2f, rater.rate(in1).value);
+		assertEquals(2f, rater.rate(in1).value, "should be rated 2")
 		
 		var1 = new Variation("Dha Dhin Dhin Dha, Dha Dhin Dhin Dha, Dha Dhin Dhin Dha, Dha Dhin Dhin Dha", bb);
 		in1 = new Individual(var1);
-		assertEquals("should be rated 3", 3f, rater.rate(in1).value);
+		assertEquals(3f, rater.rate(in1).value, "should be rated 3")
 		
 		BolSequence seq1 = new BolSequence("Dha Dhin Dhin Dha Ge Ge Ge Ge", bb);
 		var1 = new Variation(seq1);
@@ -66,7 +66,7 @@ public class RaterInnerRepetitivenessTest extends TestCase {
 		var1.addSubSequence(4,4, 2f);
 		var1.addSubSequence(4,4, 2f);		
 		in1 = new Individual(var1);
-		assertEquals("should be rated 3", 3f, rater.rate(in1).value);
+		assertEquals(3f, rater.rate(in1).value, "should be rated 3")
 
 	}
 	
@@ -77,10 +77,10 @@ public class RaterInnerRepetitivenessTest extends TestCase {
 		Individual in1 = new Individual(Themes.getTheme01(bb)); //just fake, not really needed
 		
 		double d1 = rater.normalisedDistanceToGoal(in1, 0.0f, 0.0f);
-		assertEquals("dist(0,0) should be 0", 0f,d1);
+		assertEquals(0f,d1, "dist(0,0) should be 0")
 		
 		d1 = rater.normalisedDistanceToGoal(in1, 1.0f, 1.0f);
-		assertEquals("dist(1,1) should be 0", 0f,d1);
+		assertEquals(0f,d1, "dist(1,1) should be 0")
 		
 		
 		double is = 3f;
@@ -89,19 +89,19 @@ public class RaterInnerRepetitivenessTest extends TestCase {
 		double d2 = rater.normalisedDistanceToGoal(in1, is, goal);
 		
 		System.out.println("distance ("+is+", " +goal+") = " + d1);
-		assertEquals("dist(3, 4) should be 0.2", 0.2f, d1);
-		assertEquals("dist should be commutative ", d1, d2);
+		assertEquals(0.2f, d1, "dist(3, 4) should be 0.2")
+		assertEquals(d1, d2, "dist should be commutative ")
 		
 
 		is = 0f;
 		goal = 4.0f;
 		d1 = rater.normalisedDistanceToGoal(in1, is, goal);
-		assertEquals("dist(0,4) should be 0.8", 0.8f, d1);
+		assertEquals(0.8f, d1, "dist(0,4) should be 0.8")
 		
 		is = 0f;
 		goal = 5.0f;
 		d1 = rater.normalisedDistanceToGoal(in1, is, goal);
-		assertEquals("dist(0,5) should be 0.84", 0.84f, d1);
+		assertEquals(0.84f, d1, "dist(0,5) should be 0.84")
 			
 	}	
 }

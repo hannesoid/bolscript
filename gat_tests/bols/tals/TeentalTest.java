@@ -1,6 +1,6 @@
 package bols.tals;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import basics.Debug;
 import bols.BolSequence;

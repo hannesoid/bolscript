@@ -2,18 +2,18 @@ package algorithm;
 
 import javax.sound.midi.Sequence;
 import javax.sound.midi.Track;
-
-import junit.framework.TestCase;
 import midi.MidiStation;
 import algorithm.composers.tihai.TihaiComposer;
 import bols.BolBase;
 import bols.BolSequence;
 import bols.Variation;
 import bols.tals.Teental;
+import org.junit.jupiter.api.Test;
 
-public class TihaiTest extends TestCase {
+public class TihaiTest {
 	BolBase bb = BolBase.getStandard();
-	
+
+	@Test
 	public void testTihai() throws Exception {
 		
 		

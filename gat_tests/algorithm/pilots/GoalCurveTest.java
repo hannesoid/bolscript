@@ -4,12 +4,10 @@ import static algorithm.pilots.WayPoint.CurvePointTypes.LEVEL;
 import static algorithm.pilots.WayPoint.CurvePointTypes.LINEAR;
 import algorithm.raters.RaterAverageSpeed;
 import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
 
-public class GoalCurveTest extends TestCase {
-
-	protected void setUp() throws Exception {
-		super.setUp();
-	}
+@Test
+public class GoalCurveTest {
 
 	/*
 	 * Test method for 'algorithm.pilots.GoalCurve.addPoint(CurveTypes, long, double, CurvePointTypes)'

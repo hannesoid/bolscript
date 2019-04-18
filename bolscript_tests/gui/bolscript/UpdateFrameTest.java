@@ -4,7 +4,7 @@ import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.io.File;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import basics.FileManager;
 import basics.FileReadException;

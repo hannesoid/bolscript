@@ -33,8 +33,8 @@ public class CrossOverOnePointTest extends TestCase {
 		
 		for (int i = 0; i < 3; i++) {
 			co.crossOver(in3,in4);
-			assertEquals("duration should stay the same",in1.getVariation().getAsSequence().getDuration(),in3.getVariation().getAsSequence().getDuration());
-			assertEquals("duration should be the same",in3.getVariation().getAsSequence().getDuration(),in4.getVariation().getAsSequence().getDuration());	
+			assertEquals(in1.getVariation().getAsSequence().getDuration(),in3.getVariation().getAsSequence().getDuration(), "duration should stay the same")
+			assertEquals(in3.getVariation().getAsSequence().getDuration(),in4.getVariation().getAsSequence().getDuration(), "duration should be the same")
 			//System.out.println("in3:" + in3);
 			//System.out.println("in4:" + in4);
 		}
@@ -62,8 +62,8 @@ public class CrossOverOnePointTest extends TestCase {
 		
 		for (int i = 0; i < 10; i++) {
 			co.crossOver(in3,in4);
-//			assertEquals("duration should stay the same",in1.getVariation().getAsSequence().getDuration(),in3.getVariation().getAsSequence().getDuration());
-			assertEquals("duration should be the same",in3.getVariation().getAsSequence().getDuration(),in4.getVariation().getAsSequence().getDuration());	
+//			assertEquals(in1.getVariation().getAsSequence().getDuration(),in3.getVariation().getAsSequence().getDuration(), "duration should stay the same")
+			assertEquals(in3.getVariation().getAsSequence().getDuration(),in4.getVariation().getAsSequence().getDuration(), "duration should be the same")
 			System.out.println("in3:" + in3);
 			System.out.println("in4:" + in4);
 		}		

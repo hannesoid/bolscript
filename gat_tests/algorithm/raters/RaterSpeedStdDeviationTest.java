@@ -6,21 +6,25 @@ import algorithm.composers.kaida.Feature;
 import algorithm.composers.kaida.Individual;
 import bols.BolBase;
 import bols.Variation;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-public class RaterSpeedStdDeviationTest extends TestCase {
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class RaterSpeedStdDeviationTest {
 
 	BolBase bb;
 	
-	@Override
+	@BeforeEach
 	protected void setUp() throws Exception {
-		// TODO Auto-generated method stub
-		super.setUp();
 		bb = new BolBase();
 	}
 	
 	/*
 	 * Test method for 'algorithm.raters.RaterSpeedVariance.rate(Individual)'
 	 */
+
+	@Test
 	public void testRateIndividual() throws Exception {
 	
 		
@@ -35,7 +39,7 @@ public class RaterSpeedStdDeviationTest extends TestCase {
 		Feature f1 = rater.rate(in1);
 		Feature f2 = rater.rate(in2);
 		System.out.println("f1: " + f1 + ", f2: " + f2);
-		assertEquals("two similar individuals should be rated same ", f1.value, f2.value);
+		assertEquals(f1.value, f2.value, "two similar individuals should be rated same ")
 		
 		
 		var1 = new Variation("Dha Dha Ge Na", bb);
@@ -47,8 +51,8 @@ public class RaterSpeedStdDeviationTest extends TestCase {
 		f2 = rater.rate(in2);
 		System.out.println("in1: " + in1.toString());
 		System.out.println("in2: " + in2.toString());
-		assertEquals("in1 should have variance 0 ", 0.0f, f1.value);
-		assertEquals("in2 should have variance 0 ", 0.0f, f2.value);
+		assertEquals(0.0f, f1.value, "in1 should have variance 0 ")
+		assertEquals(0.0f, f2.value, "in2 should have variance 0 ")
 		
 		
 		var1 = new Variation("Dha - - -, Dha - Ge -", bb);
@@ -69,6 +73,7 @@ public class RaterSpeedStdDeviationTest extends TestCase {
 		
 	}
 	
+	@Test
 	public void testNormalisedDistance() {
 		Variation var1 = Themes.getTheme01(bb);
 		Variation var2 = Themes.getTheme01(bb);
@@ -83,25 +88,22 @@ public class RaterSpeedStdDeviationTest extends TestCase {
 		
 		System.out.println("f1: " + f1 + ", f2: " + f2);
 		double d = rater.normalisedDistanceToGoal(in1,f1.value, f2.value);
-		assertEquals("two similar individuals should be have distance 0 ",0.0f, d);
+		assertEquals(0.0f, d, "two similar individuals should be have distance 0 ")
 		
 		d = rater.normalisedDistanceToGoal(in1, 0.0f, 1.0f);
-		assertEquals("distance(0,1) should be .5 ",0.5f, d);
+		assertEquals(0.5f, d, "distance(0,1) should be .5 ")
 		
 		d = rater.normalisedDistanceToGoal(in1, 1.0f, 2.0f);
-		assertEquals("distance(1,2) should be .5 ",0.5f, d);
+		assertEquals(0.5f, d, "distance(1,2) should be .5 ")
 		
 		d = rater.normalisedDistanceToGoal(in1, 1.0f, 2.0f);
 		double d2 = rater.normalisedDistanceToGoal(in1, 2.0f, 1.0f);
-		assertEquals("distance should be commutative ",d, d2);
+		assertEquals(d, d2, "distance should be commutative ")
 		
 		d = rater.normalisedDistanceToGoal(in1, 1.0f, 3.0f);
-		assertEquals("distance(1,3) should be .75 ",0.75f, d);
+		assertEquals(0.75f, d, "distance(1,3) should be .75 ")
 
 		d = rater.normalisedDistanceToGoal(in1, 1.0f, 5.0f);
-		assertEquals("distance(1,4) should be 1 ",1.0f, d);
-		
-
+		assertEquals(1.0f, d, "distance(1,4) should be 1 ")
 	}
-
 }

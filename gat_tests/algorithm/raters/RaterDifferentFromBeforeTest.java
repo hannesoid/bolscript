@@ -33,10 +33,10 @@ public class RaterDifferentFromBeforeTest extends TestCase {
 		previous.add(in1);
 		Feature f1 = rater.rate(in1, previous);
 		
-		assertEquals("two similar vars should be rated 0 diff",0f,f1.value);
+		assertEquals(0f,f1.value, "two similar vars should be rated 0 diff")
 		
 		Feature f2 = rater.rate(in2, previous);
-		assertEquals("two different vars should be rated 1 diff",1f, f2.value);
+		assertEquals(1f, f2.value, "two different vars should be rated 1 diff")
 		
 		
 	}

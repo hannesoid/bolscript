@@ -65,7 +65,7 @@ public class FitnessRaterEuklidTest extends TestCase {
 		System.out.println("f1: " + f1 + ", f2: " + f2);
 		System.out.println("in1: " + in1);
 		System.out.println("in2: " + in2);
-		assertEquals("f1 should be rated 1 ", 1.0f, f1.value);
+		assertEquals(1.0f, f1.value, "f1 should be rated 1 ")
 		
 		assertTrue("f1 should be rated better than f2 ", f1.value>f2.value);
 		
@@ -79,7 +79,7 @@ public class FitnessRaterEuklidTest extends TestCase {
 		
 		Feature f4 = rater.rate(in1.getCopyKeepBolSequenceStripFeatures());
 		System.out.println("f1: " + f1 + ", f4: " + f4);
-		assertEquals("f1 should be rated same as f4, even if similar end loses importance ", f1.value, f4.value);
+		assertEquals(f1.value, f4.value, "f1 should be rated same as f4, even if similar end loses importance ")
 		
 		//////////////////////
 		//set GoalSet

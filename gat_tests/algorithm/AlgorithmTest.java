@@ -30,7 +30,7 @@ public class AlgorithmTest extends TestCase {
 	public void testAlgorithmNew() throws Exception {
 		BolBase bolBase = new BolBase();
 		KaidaComposer al = new KaidaComposer(bolBase, new Teental(), Themes.getTheme01(bolBase));
-		assertEquals("After Constructor al should have 1 generation", 1l, al.getGenerationNr());
+		assertEquals(1l, al.getGenerationNr(), "After Constructor al should have 1 generation")
 		try {
 			ArrayList<Individual> gen1 = al.getCurrentGeneration();
 		} catch (NullPointerException e) {
@@ -42,7 +42,7 @@ public class AlgorithmTest extends TestCase {
 	public void testAlgorithmDoEvolution() throws Exception {
 		BolBase bolBase = new BolBase();
 		KaidaComposer al = new KaidaComposer(bolBase, new Teental(), Themes.getTheme01(bolBase));
-		assertEquals("After Constructor al should have 1 generation", 1l, al.getGenerationNr());
+		assertEquals(1l, al.getGenerationNr(), "After Constructor al should have 1 generation")
 		int generationCount = 1;
 		//al.setDEBUG(true);
 		int nrOfRuns = 50;
@@ -59,7 +59,7 @@ public class AlgorithmTest extends TestCase {
 				fail("al threw some Exception");
 				System.exit(1);
 			}
-			assertEquals("one generation should be added after each cycle",++generationCount,al.getGenerationNr());
+			assertEquals(++generationCount,al.getGenerationNr(), "one generation should be added after each cycle")
 		}
 		t.stopAndPrint();
 		System.out.println("Per cycle: " + ((double)t.getDuration() / (double)nrOfRuns) + "ms");

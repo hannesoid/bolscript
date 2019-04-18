@@ -3,7 +3,9 @@ package bolscript;
 
 import org.junit.Before;
 import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import basics.FileReadException;
 import bols.BolBase;
@@ -13,13 +15,13 @@ import bols.tals.TalDynamic;
 public class TalDynamicTest {
 	BolBase bolBase;
 	
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 	   bolBase = new BolBase();
 	}
 	
 	
-	@Ignore
+	@Disabled
 	public void testFromFile() throws FileReadException{
 		TalDynamic tal = new TalDynamic("/Users/hannes/Desktop/teental.tal.txt", TalBaseDefault.getStandard());
 		System.out.println(tal.getName());

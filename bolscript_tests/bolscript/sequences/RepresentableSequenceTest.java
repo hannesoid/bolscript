@@ -1,10 +1,10 @@
 package bolscript.sequences;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.junit.BeforeClass;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import basics.Debug;
 import basics.Rational;
@@ -15,7 +15,7 @@ import bolscript.scanner.SequenceParser;
 
 public class RepresentableSequenceTest {
 
-	@BeforeClass
+	@BeforeAll
 	public static void init() {
 		Debug.init();
 		Config.init();
@@ -96,10 +96,10 @@ public class RepresentableSequenceTest {
 		Debug.temporary(this, out);
 		
 	}
-	
-	
-	
-	@Ignore 
+
+
+
+	@Disabled
 	public void testTruncating() {
 		String input = "Dha , Ge ( Dhin Na ) Dha Dha Tun Na ";
 		SequenceParser parser = new SequenceParser(0, null);
@@ -129,7 +129,7 @@ public class RepresentableSequenceTest {
 		}
 	}
 	
-	@Ignore
+	@Disabled
 	public void testLastAbsSpeedUnit() {
 		String[] input = new String[]{"Dha , Ge ( Dhin Na ) Dha Dha Tun Na ",
 				"Dha Ne Dha 4!",

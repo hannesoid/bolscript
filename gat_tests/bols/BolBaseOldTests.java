@@ -1,21 +1,15 @@
 package bols;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
 
-public class BolBaseOldTests extends TestCase {
+import static org.junit.jupiter.api.Assertions.*;
 
+@Test
+public class BolBaseOldTests {
 
 
 	public BolBaseOldTests(String name) {
 		super(name);
-	}
-
-	protected void setUp() throws Exception {
-		super.setUp();
-	}
-
-	protected void tearDown() throws Exception {
-		super.tearDown();
 	}
 
 	/*
@@ -35,7 +29,7 @@ public class BolBaseOldTests extends TestCase {
 		
 		BolName emptyBol = bolBase.getEmptyBol();
 		assertNotNull("emptyBol should be no null", emptyBol);
-		assertEquals("empty bolname.name should be - ", "-",  emptyBol.getNameShort());
+		assertEquals("-",  emptyBol.getNameShort(), "empty bolname.name should be - ")
 		
 	
 	}
@@ -43,8 +37,8 @@ public class BolBaseOldTests extends TestCase {
 	public void testBolDiffs() throws Exception {
 		BolBase bb = new BolBase();
 		BolName emptyBol = bb.getEmptyBol();
-		assertEquals("Difference between the same Bol should be 0",0d, bb.getDifference("Dha", "Dha"));
-		assertEquals("Difference should be commutative",bb.getDifference("Ge", "Dha"), bb.getDifference("Dha", "Ge"));
+		assertEquals(0d, bb.getDifference("Dha", "Dha"), "Difference between the same Bol should be 0")
+		assertEquals(bb.getDifference("Ge", "Dha"), bb.getDifference("Dha", "Ge"), "Difference should be commutative")
 		assertTrue("Difference between Dha,Ge should be smaller than Dha,Ke ",bb.getDifference("Ge", "Dha") < bb.getDifference("Dha", "Ke"));
 		assertTrue("Difference between Na,- should be smaller than Dha,- ",bb.getDifference("Na", "-") < bb.getDifference("Dha", "-"));
 		System.out.println("diff(Dha,Ge)=" + bb.getDifference("Dha", "Ge") + ", diff(Dha, Ke)="+ bb.getDifference("Dha", "Ke"));
@@ -60,9 +54,9 @@ public class BolBaseOldTests extends TestCase {
 		BolName bn3 = bb.getBolName("Ge");
 		BolName bn4 = bb.getBolName("Ke");
 		
-		assertEquals("KaliMap of Ge should be Ke", bn4, bb.getKaliBolName(bn3));
-		assertEquals("KaliMap of Dha should be Na", bn2, bb.getKaliBolName(bn1));
-		//assertEquals("KaliMap of Ta should be Ta", bn2, bb.getKaliBolName(bn2));
+		assertEquals(bn4, bb.getKaliBolName(bn3), "KaliMap of Ge should be Ke")
+		assertEquals(bn2, bb.getKaliBolName(bn1), "KaliMap of Dha should be Na")
+		//assertEquals(bn2, bb.getKaliBolName(bn2), "KaliMap of Ta should be Ta")
 		
 		
 		

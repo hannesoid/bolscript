@@ -34,12 +34,12 @@ public class MutatorDoublifyAllTest extends TestCase {
 		Feature stdDev1 = raterDev.rate(in1);
 		
 		Individual in2 = in1.getCopyKeepBolSequenceStripFeatures();
-		assertEquals("duration should be the same before",in1.getVariation().getAsSequence().getDuration(),in2.getVariation().getAsSequence().getDuration());
+		assertEquals(in1.getVariation().getAsSequence().getDuration(),in2.getVariation().getAsSequence().getDuration(), "duration should be the same before")
 		System.out.println("Variaion now: " + in2.getVariation());
 		System.out.println("before mutating: " + avSpeed1 + ", " + stdDev1);
 		for (int i = 0; i < 1; i++) {
 			m.mutate(in2);
-			assertEquals("duration should stay the same",in1.getVariation().getAsSequence().getDuration(),in2.getVariation().getAsSequence().getDuration());			
+			assertEquals(in1.getVariation().getAsSequence().getDuration(),in2.getVariation().getAsSequence().getDuration(), "duration should stay the same")
 		}
 		Feature avSpeed2 = rater.rate(in2);
 		Feature stdDev2 = raterDev.rate(in2);
@@ -58,7 +58,7 @@ public class MutatorDoublifyAllTest extends TestCase {
 		
 		mutator1.mutate(in1);
 		System.out.println("var after: " + in1.getVariation());
-		assertEquals("should be of same duration: ", var1.getDuration(), var2.getDuration());
+		assertEquals(var1.getDuration(), var2.getDuration(), "should be of same duration: ")
 		
 	}
 

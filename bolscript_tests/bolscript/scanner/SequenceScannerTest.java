@@ -1,15 +1,13 @@
 package bolscript.scanner;
 
 import static bolscript.sequences.Representable.*;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import java.io.IOException;
-
-import org.junit.Test;
 
 import basics.Debug;
 import bolscript.sequences.Representable;
+import org.junit.jupiter.api.Test;
 
 public class SequenceScannerTest {
 
@@ -94,25 +92,25 @@ public class SequenceScannerTest {
 		
 		SequenceScanner scanner = new SequenceScanner(input);
 		
-		assertEquals("3", scanner.nextToken().text);
+		assertEquals(scanner.nextToken().text, "3")
 		scanner.nextToken();
-		assertEquals("3!", scanner.nextToken().text);
+		assertEquals(scanner.nextToken().text, "3!")
 		scanner.nextToken();
-		assertEquals("3  !", scanner.nextToken().text);
+		assertEquals(scanner.nextToken().text, "3  !")
 
 		input = "dha ge sihn sun dus";
 		
 		scanner = new SequenceScanner(input);
-		assertEquals("dha", scanner.nextToken().text);
+		assertEquals(scanner.nextToken().text, "dha")
 		Debug.temporary(this, scanner.nextToken().text);
-		assertEquals("ge", scanner.nextToken().text);
+		assertEquals(scanner.nextToken().text, "ge")
 		Debug.temporary(this, scanner.nextToken().text);
 		
-		assertEquals("sihn", scanner.nextToken().text);
+		assertEquals(scanner.nextToken().text, "sihn")
 		Debug.temporary(this, scanner.nextToken().text);
-		assertEquals("sun", scanner.nextToken().text);
+		assertEquals(scanner.nextToken().text, "sun")
 		Debug.temporary(this, scanner.nextToken().text);
-		assertEquals("dus", scanner.nextToken().text);
+		assertEquals(scanner.nextToken().text, "dus")
 
 	}
 

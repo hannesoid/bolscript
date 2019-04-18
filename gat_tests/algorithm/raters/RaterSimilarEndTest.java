@@ -83,8 +83,8 @@ public class RaterSimilarEndTest extends TestCase {
 		Feature f8 = rater.rate(in2);
 		System.out.println("f7: " + f7.toString() + ", f8: " + f8.toString());
 		assertNotSame("unconstant speed in the end should make a difference", f7.value, f8.value);
-		assertEquals("f7 should be rated as 8.0", 8.0f, f7.value);
-		assertEquals("f8 should be rated as 5.0", 5.0f, f8.value);
+		assertEquals(8.0f, f7.value, "f7 should be rated as 8.0")
+		assertEquals(5.0f, f8.value, "f8 should be rated as 5.0")
 		
 		var1 = new Variation(seq1);
 		var1.addSubSequence(new SubSequenceAdvanced(seq1,0,1, new PlayingStyle(1,1)));
@@ -96,8 +96,8 @@ public class RaterSimilarEndTest extends TestCase {
 		Feature f9 = rater.rate(in1);
 		Feature f10 = rater.rate(in2);
 		System.out.println("f9: " + f9.toString() + ", f10: " + f10.toString());	
-		assertEquals("f9 should be rated as 1", 1.0f, f9.value);
-		assertEquals("f10 should be rated as 0", 0f, f10.value);
+		assertEquals(1.0f, f9.value, "f9 should be rated as 1")
+		assertEquals(0f, f10.value, "f10 should be rated as 0")
 		
 		
 	}
@@ -108,15 +108,15 @@ public class RaterSimilarEndTest extends TestCase {
 		Individual in1 = new Individual(Themes.getTheme01(bb)); //just fake, not really needed
 		
 		double d1 = rater.normalisedDistanceToGoal(in1,0.0f,0.0f);
-		assertEquals("dist(0,0) should be 0", 0.0f,d1);
+		assertEquals(0.0f,d1, "dist(0,0) should be 0")
 		
 		d1 = rater.normalisedDistanceToGoal(in1,1.0f,1.0f);
-		assertEquals("dist(1,1) should be 0", 0.0f,d1);
+		assertEquals(0.0f,d1, "dist(1,1) should be 0")
 		
 		d1 = rater.normalisedDistanceToGoal(in1,10f,1.0f);
-		assertEquals("dist(10,1) should be 0", 0.0f, d1);
+		assertEquals(0.0f, d1, "dist(10,1) should be 0")
 		
 		d1 = rater.normalisedDistanceToGoal(in1,4f,8.0f);
-		assertEquals("dist(4,8) should be 0.5", 0.5f, d1);		
+		assertEquals(0.5f, d1, "dist(4,8) should be 0.5")
 	}	
 }

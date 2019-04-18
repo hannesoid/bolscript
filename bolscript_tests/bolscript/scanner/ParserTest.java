@@ -1,11 +1,13 @@
 package bolscript.scanner;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertSame;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
 
 import org.junit.BeforeClass;
 import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import basics.Debug;
 import bols.BolBase;
@@ -14,12 +16,13 @@ import bolscript.packets.Packets;
 
 public class ParserTest {
 
-	@BeforeClass
+	@BeforeAll
 	public static void setup(){
 		Debug.init();
 		BolBase.getStandard();
 	}
-	@Ignore
+
+	@Disabled
 	public void publicTestPacketTextRefs() {
 		//doesnt work!
 		String input =  "Bla:\n" +
@@ -35,8 +38,8 @@ public class ParserTest {
 		assertEquals(0, packets.get(0).getTextRefKey().start());
 		
 		
-		assertEquals("d", input.substring(packets.get(0).getTextRefValue().start(),packets.get(0).getTextRefValue().start()+1));
-		assertEquals("t", input.substring(packets.get(1).getTextRefValue().start(),packets.get(1).getTextRefValue().start()+1));
+		assertEquals(input.substring(packets.get(0).getTextRefValue().start(),packets.get(0).getTextRefValue().start()+1), "d")
+		assertEquals(input.substring(packets.get(1).getTextRefValue().start(),packets.get(1).getTextRefValue().start()+1), "t")
 		//assertEquals(5, packets.get(0).getTextRefValue().start());
 
 	}

@@ -67,7 +67,7 @@ public class RaterAverageSpeedTest extends TestCase {
 		Feature f7 = rater.rate(in1);
 		Feature f8 = rater.rate(in2);
 		System.out.println("f7: " + f7.toString() + ", f8: " + f8.toString());
-		assertEquals("a leading pause should make no difference! ", f7.value, f8.value);
+		assertEquals(f7.value, f8.value, "a leading pause should make no difference! ")
 		
 	}
 	public void testNormalisedDistance() {
@@ -81,7 +81,7 @@ public class RaterAverageSpeedTest extends TestCase {
 		Feature f1 = rater.rate(in1);
 		Feature f2 = rater.rate(in2);
 		System.out.println("f1: " + f1.toString());
-		assertEquals("distance should be 0 : ",0f,rater.normalisedDistanceToGoal(in1,f1.value,f2.value));
+		assertEquals(0f,rater.normalisedDistanceToGoal(in1,f1.value,f2.value), "distance should be 0 : ")
 		
 		BolSequence seq1 = new BolSequence("Dha Dha Dhin Dhin Na Na", bb);
 		var1 = new Variation(seq1);
@@ -98,14 +98,14 @@ public class RaterAverageSpeedTest extends TestCase {
 		f1 = rater.rate(in1);
 		f2 = rater.rate(in2);
 		System.out.println("f1: " + f1 + ", f2:" + f2);
-		assertEquals("f1 should be rated 2: ",2.0f,f1.value);
-		assertEquals("f2 should be rated 4: ",4.0f,f2.value);
-		assertEquals("distance between f1,f2 should be 0.25 (1 duplication)",0.25f, rater.normalisedDistanceToGoal(in1,f1.value,f2.value));
+		assertEquals(2.0f,f1.value, "f1 should be rated 2: ")
+		assertEquals(4.0f,f2.value, "f2 should be rated 4: ")
+		assertEquals(0.25f, rater.normalisedDistanceToGoal(in1,f1.value,f2.value), "distance between f1,f2 should be 0.25 (1 duplication)")
 
-		assertEquals("distance between 0.25,2.0 should be 0.75 (3 dups)",0.75f, rater.normalisedDistanceToGoal(in1,0.25f,2.0f));
-		assertEquals("distance between 0.25,4.0 should be 1 (4 dups)", 1.0f, rater.normalisedDistanceToGoal(in1,0.25f,4.0f));
-		assertEquals("distance between 0.25,100.0 should be 1 ceiled(4 dups)", 1.0f, rater.normalisedDistanceToGoal(in1,0.25f,100.0f));		
+		assertEquals(0.75f, rater.normalisedDistanceToGoal(in1,0.25f,2.0f), "distance between 0.25,2.0 should be 0.75 (3 dups)")
+		assertEquals(1.0f, rater.normalisedDistanceToGoal(in1,0.25f,4.0f), "distance between 0.25,4.0 should be 1 (4 dups)")
+		assertEquals(1.0f, rater.normalisedDistanceToGoal(in1,0.25f,100.0f), "distance between 0.25,100.0 should be 1 ceiled(4 dups)")
 		System.out.println("dist(1,2): "+rater.normalisedDistanceToGoal(in1,1f,2f)+", dist(2,1): "+ rater.normalisedDistanceToGoal(in1,2f,1f));
-		assertEquals("distance between 1,2 should be same as 2,1",rater.normalisedDistanceToGoal(in1,1f,2f),rater.normalisedDistanceToGoal(in1,2f,1f));
+		assertEquals(rater.normalisedDistanceToGoal(in1,1f,2f),rater.normalisedDistanceToGoal(in1,2f,1f), "distance between 1,2 should be same as 2,1")
 	}
 }

@@ -3,22 +3,22 @@ package bols;
 import junit.framework.TestCase;
 
 import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 import basics.Debug;
 import bolscript.config.Config;
 import bolscript.sequences.RepresentableSequence;
 
-public class BolSequenceTest extends TestCase {
+public class BolSequenceTest {
 	BolBaseGeneral bb;
 
 	
-	@BeforeClass
+	@BeforeAll
 	public void setUp() throws Exception {
-		super.setUp();
-
 		bb = BolBase.getStandard();
 	}
+
 	@Test
 	public void testDurationStuff () throws Exception{
 
@@ -28,7 +28,7 @@ public class BolSequenceTest extends TestCase {
 		seq1.addBol(new Bol(bb.getBolName("Dha"), new PlayingStyle(1,1), null, false));
 		seq1.addBol(new Bol(bb.getBolName("-"), new PlayingStyle(1,1), null, false));
 		
-		assertEquals("duration of seq1 should be 4", 4.0d, seq1.getDuration());
+		assertEquals(4.0d, seq1.getDuration(), "duration of seq1 should be 4")
 		
 		
 		seq1 = new BolSequence();
@@ -36,7 +36,7 @@ public class BolSequenceTest extends TestCase {
 		seq1.addBol(new Bol(bb.getBolName("Ge"), new PlayingStyle(1,1), null, false));
 		seq1.addBol(new Bol(bb.getBolName("Dha"), new PlayingStyle(1,1), null, false));
 		
-		assertEquals("duration should be 3", 3.0d, seq1.getDuration());
+		assertEquals(3.0d, seq1.getDuration(), "duration should be 3")
 		
 		seq1 = new BolSequence();
 		seq1.addBol(new Bol(bb.getBolName("Dha"), new PlayingStyle(2,1), null, false));
@@ -44,14 +44,14 @@ public class BolSequenceTest extends TestCase {
 		seq1.addBol(new Bol(bb.getBolName("Dha"), new PlayingStyle(2,1), null, false));
 		seq1.addBol(new Bol(bb.getBolName("-"), new PlayingStyle(2,1), null, false));		
 		
-		assertEquals("duration should be 2.0f", 2.0d, seq1.getDuration());		
+		assertEquals(2.0d, seq1.getDuration(), "duration should be 2.0f")
 		
 		seq1 = new BolSequence();
 		seq1.addBol(new Bol(bb.getBolName("Dha"), new PlayingStyle(2,1), null, false));
 		seq1.addBol(new Bol(bb.getBolName("Ge"), new PlayingStyle(2,1), null, false));
 		seq1.addBol(new Bol(bb.getBolName("Dha"), new PlayingStyle(2,1), null, false));
 		
-		assertEquals("duration should be 1.5f", 1.5d, seq1.getDuration());				
+		assertEquals(1.5d, seq1.getDuration(), "duration should be 1.5f")
 		
 	}
 	@Test	
@@ -71,13 +71,13 @@ public class BolSequenceTest extends TestCase {
 		seq2.addBol(new Bol(bb.getBolName("-"), new PlayingStyle(1,1), null, false));		
 		
 		BolSequence seq3 = seq1.getCopyWithMergedPauses(bb);
-		assertEquals("duration of seq3 should be same as of seq1", seq3.getDuration(), seq1.getDuration());	
-		assertEquals("seq3 should have three bols left",3, seq3.getLength());
+		assertEquals(seq3.getDuration(), seq1.getDuration(), "duration of seq3 should be same as of seq1")
+		assertEquals(3, seq3.getLength(), "seq3 should have three bols left")
 		
 		BolSequence seq4 = seq2.getCopyWithMergedPauses(bb);	
-		assertEquals("duration of seq4 should be same as of seq2", seq2.getDuration(), seq4.getDuration());	
-		assertEquals("duration of seq4 should be 5", 5.0d, seq4.getDuration());	
-		assertEquals("seq4 should have three bols left",3, seq4.getLength());
+		assertEquals(seq2.getDuration(), seq4.getDuration(), "duration of seq4 should be same as of seq2")
+		assertEquals(5.0d, seq4.getDuration(), "duration of seq4 should be 5")
+		assertEquals(3, seq4.getLength(), "seq4 should have three bols left")
 		
 		
 	}

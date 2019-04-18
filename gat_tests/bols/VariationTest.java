@@ -10,27 +10,26 @@ import config.Themes;
 import algorithm.tools.RouletteWheel;
 
 import junit.framework.TestCase;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-public class VariationTest extends TestCase {
+import static org.junit.jupiter.api.AssertTrue.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
+
+@Test
+public class VariationTest {
 
 	BolBase bb;
 	
-
-	public VariationTest(String name) {
-		super(name);
-	}
-
+	@BeforeEach
 	protected void setUp() throws Exception {
-		super.setUp();
 		Debug.init();
 		Debug.setMute(true);
 		BolBase.init(this.getClass());
 		bb = BolBase.getStandard();
 		Debug.setMute(false);
-	}
-
-	protected void tearDown() throws Exception {
-		super.tearDown();
 	}
 
 	/*
@@ -41,13 +40,13 @@ public class VariationTest extends TestCase {
 		 
 		Variation var1 = new Variation("Dha Ge Ti Ri Ke Te, Dha -, Dha -, Dha Ge Ti Ri Ke Te", bb);
 		
-		assertEquals("The Variation should have 4 Subsequences!", 4, var1.getSubSequences().size());
+		assertEquals(4, var1.getSubSequences().size(), "The Variation should have 4 Subsequences!")
 		
-		assertEquals("The 1. subseq should be of length 6!", 6, var1.getSubSequence(0).getLength());
-		assertEquals("The 2. subseq should be of length 2", 2, var1.getSubSequence(1).getLength());
-		assertEquals("The last subseq should be of length 6!", 6, var1.getSubSequence(3).getLength());
-		assertEquals("Variation should be of duration 16", 16.0, var1.getDuration());
-		assertEquals("Variation should be of length 16", 16, var1.getLength());
+		assertEquals(6, var1.getSubSequence(0).getLength(), "The 1. subseq should be of length 6!")
+		assertEquals(2, var1.getSubSequence(1).getLength(), "The 2. subseq should be of length 2")
+		assertEquals(6, var1.getSubSequence(3).getLength(), "The last subseq should be of length 6!")
+		assertEquals(16.0, var1.getDuration(), "Variation should be of duration 16")
+		assertEquals(16, var1.getLength(), "Variation should be of length 16")
 		
 		System.out.println("var1: " + var1.toString());
 		System.out.println("var1.getSeq " + var1.getAsSequence());
@@ -61,10 +60,10 @@ public class VariationTest extends TestCase {
 		 
 		Variation var1 = Themes.getTheme01(bb);
 		
-		assertEquals("The Variation should have 4 Subsequences!", 4, var1.getSubSequences().size());
-		assertEquals("The 1. subseq should be of length 6!", 6, var1.getSubSequence(0).getLength());
-		assertEquals("The 2. subseq should be of length 2", 2, var1.getSubSequence(1).getLength());
-		assertEquals("The last subseq should be of length 6!", 6, var1.getSubSequence(3).getLength());
+		assertEquals(4, var1.getSubSequences().size(), "The Variation should have 4 Subsequences!")
+		assertEquals(6, var1.getSubSequence(0).getLength(), "The 1. subseq should be of length 6!")
+		assertEquals(2, var1.getSubSequence(1).getLength(), "The 2. subseq should be of length 2")
+		assertEquals(6, var1.getSubSequence(3).getLength(), "The last subseq should be of length 6!")
 		
 		System.out.println(var1.toString());
 	}
@@ -92,8 +91,7 @@ public class VariationTest extends TestCase {
 				}
 			}
 			Variation var1 = new Variation(strSeq, bb);
-			assertEquals(".getDuration() and .getAsSequence().getDuration() should be equal",
-					var1.getAsSequence().getDuration(),(double)var1.getDuration());
+			assertEquals(var1.getAsSequence().getDuration(),(double)var1.getDuration(), ".getDuration() and .getAsSequence().getDuration() should be equal")
 
 		}
 		
@@ -125,8 +123,8 @@ public class VariationTest extends TestCase {
 		var3.addSubSequence(new SubSequenceAdvanced(seq1,8,4,new PlayingStyle(1,1)));
 		var3.addSubSequence(new SubSequenceAdvanced(seq1,12,4,new PlayingStyle(1,1)));
 		
-		assertEquals("var1 should equal var2 in sequence ",var1.getAsSequence(), var2.getAsSequence());
-		assertEquals("var2 should equal var3 in sequence ",var2.getAsSequence(), var3.getAsSequence());		
+		assertEquals(var1.getAsSequence(), var2.getAsSequence(), "var1 should equal var2 in sequence ")
+		assertEquals(var2.getAsSequence(), var3.getAsSequence(), "var2 should equal var3 in sequence ")
 	}
 	
 	public void testGetCopyWithPausesMerged() {
@@ -135,8 +133,8 @@ public class VariationTest extends TestCase {
 		
 		System.out.println("seq1:"+seq1.toStringFull()+",\nseq2(merged):"+seq2.toStringFull());
 		
-		assertEquals("duration should be same ", seq1.getDuration(), seq2.getDuration());
-		assertEquals("length should decrease by 1", seq1.getLength()-1, seq2.getLength());
+		assertEquals(seq1.getDuration(), seq2.getDuration(), "duration should be same ")
+		assertEquals(seq1.getLength()-1, seq2.getLength(), "length should decrease by 1")
 		assertTrue("first 7 bols should be same", new SubSequenceAdvanced(seq1,0,7,new PlayingStyle(1,1)).getAsSequence().equals(new SubSequenceAdvanced(seq2,0,7,new PlayingStyle(1,1)).getAsSequence()));
 		
 	}

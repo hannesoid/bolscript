@@ -10,23 +10,18 @@ import junit.framework.TestCase;
 import algorithm.composers.kaida.KaidaComposer;
 import bols.BolBase;
 import bols.tals.Teental;
+import org.junit.jupiter.api.Test;
 
-public class MidiStationTest extends TestCase {
+import static org.junit.jupiter.api.Assertions.fail;
+
+@Test
+public class MidiStationTest {
 	MidiStation ms;
 	
 	public MidiStationTest(String name) {
 		super(name);
 	}
 
-	protected void setUp() throws Exception {
-		super.setUp();
-	}
-
-	protected void tearDown() throws Exception {
-		super.tearDown();
-	}
-
-	
 	public void testMidiStationInit() throws Exception {
 		BolBase bolBase = new BolBase();
 		KaidaComposer al = new KaidaComposer(bolBase, new Teental(), Themes.getTheme01(bolBase));
@@ -49,7 +44,7 @@ public class MidiStationTest extends TestCase {
 		assertTrue("ticklength should be greater than 0", (ms.getSequence().getTickLength() > 0));
 		System.out.println("ticklength of sequence: " + ms.getSequence().getTickLength() + " in microsecs: " + ms.getSequence().getMicrosecondLength());
 		
-		assertEquals("there should be 1 Track exactly", 1, ms.getSequence().getTracks().length);
+		assertEquals(1, ms.getSequence().getTracks().length, "there should be 1 Track exactly")
 		
 		Track track = ms.getSequence().getTracks()[0];
 		assertTrue("Track.ticks() should be set greater 0", track.ticks() > 0);

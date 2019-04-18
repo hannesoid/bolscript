@@ -30,7 +30,7 @@ public class RouletteWheelTest extends TestCase {
 	 */
 	public void testGet() throws Exception {
 		//Algorithm al = new Algorithm(bolBase, new Teental(bolBase), Variation.getTestVariation(bolBase));
-		//assertEquals("After Constructor al should have 1 generation", 1l, al.getGenerationNr());
+		//assertEquals(1l, al.getGenerationNr(), "After Constructor al should have 1 generation")
 		Variation var1 = Themes.getTheme01(bolBase);
 		Variation var2 = Themes.getTheme01(bolBase);
 		Rater rater = new RaterAverageSpeed(bolBase);
@@ -60,8 +60,8 @@ public class RouletteWheelTest extends TestCase {
 		
 		System.out.println("getting(0.2f): " + wheel.get(new RouletteKey(0.2f)));
 		System.out.println("getting(0.7f): " + wheel.get(new RouletteKey(0.7f)));
-		assertEquals("0.2 should map to in1 !", in1, wheel.get(new RouletteKey(0.2f)));
-		assertEquals("0.7 should map to in2 !", in2, wheel.get(new RouletteKey(0.7f)));
+		assertEquals(in1, wheel.get(new RouletteKey(0.2f)), "0.2 should map to in1 !")
+		assertEquals(in2, wheel.get(new RouletteKey(0.7f)), "0.7 should map to in2 !")
 		
 		try {
 			for (int i = 0; i < 100; i++) {

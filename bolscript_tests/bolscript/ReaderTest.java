@@ -1,10 +1,12 @@
 package bolscript;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.Before;
 import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import basics.Debug;
 import basics.Rational;
@@ -22,7 +24,7 @@ public class ReaderTest {
 
 	BolBase bolBase;
 	
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		Debug.init();
 		Config.init();
@@ -30,24 +32,24 @@ public class ReaderTest {
 		bolBase = BolBase.getStandard();
 	}
 
-	@Ignore
+	@Disabled
 	public void testInsertingOfBolBaseStandardReplacements() {
 		Packets packets = Parser.compilePacketsFromString(" Theme: Dha tIr kit tir kit Dha ");
 		Debug.out(packets);	
 	}
 	
-	@Ignore
+	@Disabled
 	public void testSplitIntoPackets() {
 		Packets packets = Parser.splitIntoPackets(Teental.TEENTAL);
 	}
 	
-	@Ignore
+	@Disabled
 	public void testFootNotes() {
 		String s = "A: Dha ge ti re ki te\n B: Dhin Na Ge \"Footnote A for test\" Na";
 		Packets packets = Parser.compilePacketsFromString(s);
 		for (Packet p:packets) {
 			if (p.getType() == PacketTypeDefinitions.FOOTNOTE) {
-				assertEquals("A should remain and not be inserted", "Footnote A for test", p.getValue());
+				assertEquals("Footnote A for test", p.getValue(), "A should remain and not be inserted")
 			}
 		}
 	}
@@ -65,7 +67,7 @@ public class ReaderTest {
 		int currentPosition = input.length();
 		
 		//currentPosition = input.length()-1;
-		input += "  Dha Ge! Na (T ?!//&&%¤) DhaGe";
+		input += "  Dha Ge! Na (T ?!//&&%ï¿½) DhaGe";
 		assertEquals('D', input.charAt(currentPosition+2));
 		
 		int[]carretPositions 	= new int[]
@@ -88,11 +90,6 @@ public class ReaderTest {
 			String result = Parser.determineBolStringAroundCaret(input, caretPosition);
 			assertEquals(expectedResults[i],result);
 		}
-		
-		
-		
-		
-		
 	}
 	
 	@Test
@@ -104,16 +101,5 @@ public class ReaderTest {
 		Packets packets = Parser.compilePacketsFromString(s);
 		
 	}
-	
-
-	
-	
-	
-		/*String s = new String ("2 3 [ 2/3 [ 2 ] 2! 1 [ 3 ] ] [ 2 ]");
-		
-		String t = Reader.alterSpeeds(s, new Rational(1,1));
-		assertEquals(t,"2! 3 [ 4/3! [ 8/3! ] 4! 2! [ 6! ] ] [ 4! ]");
-*/
-	
 
 }
