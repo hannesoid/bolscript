@@ -1,5 +1,6 @@
 package algorithm.raters;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import algorithm.tools.Timer;
@@ -8,9 +9,9 @@ import bols.BolBase;
 public class PerformanceOfCalcsTest {
 	private static double lg2precalced = Math.log(2);
 	BolBase bb;
-	
-	public void setUp() throws Exception {
-		super.setUp();
+
+	@BeforeEach
+	public void setUp() {
 		bb = new BolBase();
 	}
 	

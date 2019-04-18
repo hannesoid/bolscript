@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import config.Themes;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import algorithm.composers.kaida.KaidaComposer;
@@ -15,19 +16,6 @@ import bols.tals.Teental;
 
 public class AlgorithmTest {
 
-
-	public AlgorithmTest(String name) {
-		super(name);
-	}
-
-	protected void setUp() throws Exception {
-		super.setUp();
-	}
-
-	protected void tearDown() throws Exception {
-		super.tearDown();
-	}
-	
 	@Test
 	public void testAlgorithmNew() throws Exception {
 		BolBase bolBase = new BolBase();

@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class MutatorTests {
-
+	
 	public static Test suite() {
 		TestSuite suite = new TestSuite("Test for algorithm.mutators");
 		//$JUnit-BEGIN$

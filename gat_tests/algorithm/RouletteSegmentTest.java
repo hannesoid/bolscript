@@ -1,6 +1,7 @@
 package algorithm;
 
 import config.Themes;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import algorithm.composers.kaida.Individual;
@@ -9,10 +10,6 @@ import bols.BolBase;
 import bols.Variation;
 
 public class RouletteSegmentTest {
-
-	protected void setUp() throws Exception {
-		super.setUp();
-	}
 
 	/*
 	 * Test method for 'algorithm.RouletteSegment.equals(Object)'

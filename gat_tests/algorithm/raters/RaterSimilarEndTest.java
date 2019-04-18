@@ -1,6 +1,7 @@
 package algorithm.raters;
 
 import config.Themes;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import algorithm.composers.kaida.Feature;
@@ -14,8 +15,8 @@ import bols.Variation;
 public class RaterSimilarEndTest {
 	BolBase bb;
 
-	protected void setUp() throws Exception {
-		super.setUp();
+	@BeforeEach
+	protected void setUp() {
 		bb = new BolBase();		
 	}
 	

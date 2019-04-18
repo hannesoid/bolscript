@@ -7,14 +7,11 @@ import algorithm.raters.RaterAverageSpeed;
 import algorithm.raters.RaterSpeedStdDeviation;
 import bols.BolBase;
 import bols.Variation;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class MutatorDoublifyAllTest {
-
-	protected void setUp() throws Exception {
-		super.setUp();
-	}
 
 	/*
 	 * Test method for 'algorithm.mutators.MutatorDoublifyAll.mutate(Individual)'

@@ -15,13 +15,8 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.fail;
 
-@Test
 public class MidiStationTest {
 	MidiStation ms;
-	
-	public MidiStationTest(String name) {
-		super(name);
-	}
 
 	@Test
 	public void testMidiStationInit() throws Exception {

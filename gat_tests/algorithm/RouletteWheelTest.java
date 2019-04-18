@@ -1,6 +1,7 @@
 package algorithm;
 
 import config.Themes;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import algorithm.composers.kaida.Feature;
@@ -17,13 +18,10 @@ import bols.Variation;
 
 public class RouletteWheelTest {
 	BolBase bolBase;
-	protected void setUp() throws Exception {
-		super.setUp();
-		bolBase = new BolBase();		
-	}
 
-	protected void tearDown() throws Exception {
-		super.tearDown();
+	@BeforeEach
+	protected void setUp() {
+		bolBase = new BolBase();		
 	}
 
 	/*
