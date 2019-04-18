@@ -1,8 +1,12 @@
 package testsuites;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
+//import junit.framework.Test;
+//import junit.framework.TestSuite;
 import basics.BasicsTests;
+import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
+import org.junit.runners.Suite.SuiteClasses;
 
 public class AllTests {
 

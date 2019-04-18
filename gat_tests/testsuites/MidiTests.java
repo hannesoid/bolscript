@@ -1,9 +1,10 @@
 package testsuites;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
 import midi.MidiStationTest;
+import org.junit.jupiter.api.Test;
 
+@RunWith(value=Suite.class)
+@SuiteClasses(value={TestCase.class})
 public class MidiTests {
 
 	public static Test suite() {
