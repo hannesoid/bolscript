@@ -45,7 +45,7 @@ public class SequenceParserTest {
 		assertEquals(Representable.REFERENCED_BOL_PACKET, seq.get(1).getType());
 
 		for (int i=0; i < seq.size(); i++) {
-			assertNotNull("unit "+i+" of type " + seq.get(i).getType() +": "+seq.get(i) + " should have a textreference", seq.get(i).getTextReference());
+			assertNotNull(seq.get(i).getTextReference(), "unit "+i+" of type " + seq.get(i).getType() +": "+seq.get(i) + " should have a textreference");
 		}
 	}
 
@@ -66,7 +66,7 @@ public class SequenceParserTest {
 		assertEquals(1, seq.get(0).getTextReference().end());
 		
 		assertEquals(Representable.FAILED, seq.get(2).getType());
-		assertEquals(((FailedUnit)seq.get(2)).getObject(), "_##")
+		assertEquals(((FailedUnit)seq.get(2)).getObject(), "_##");
 		assertEquals(6, seq.get(2).getTextReference().start());
 		assertEquals(9, seq.get(2).getTextReference().end());
 		
@@ -103,7 +103,7 @@ public class SequenceParserTest {
 		assertEquals(17, seq.size());
 		RepresentableSequence subseq = parser.buildInnermostSubsequence(seq);		
 		assertEquals(7, subseq.size());
-		assertEquals(seq.toStringAll(),11, seq.size());
+		assertEquals(11, seq.size(), seq.toStringAll());
 
 		RepresentableSequence subseq2 = parser.buildInnermostSubsequence(seq);
 		assertEquals(6, subseq2.size());
@@ -111,7 +111,7 @@ public class SequenceParserTest {
 
 		//none left to build now
 		assertNull(parser.buildInnermostSubsequence(seq));
-		assertNull("assumed no more wrappable inner subsequences in " + subseq.toStringAll(),parser.buildInnermostSubsequence(subseq));
+		assertNull(parser.buildInnermostSubsequence(subseq), "assumed no more wrappable inner subsequences in " + subseq.toStringAll());
 		assertNull(parser.buildInnermostSubsequence(subseq2));
 
 		///now alltogether
@@ -148,11 +148,11 @@ public class SequenceParserTest {
 		assertEquals(Representable.LINE_BREAK,seq.get(5).getType());
 		assertEquals(18, seq.size());
 		subseq = parser.packOneWholeLineWithKardinalityModifier(seq);
-		assertNotNull("parsing for kardinality on : " + seq.toStringAll() + " should give us a subseq.", subseq);
+		assertNotNull(subseq, "parsing for kardinality on : " + seq.toStringAll() + " should give us a subseq.");
 		assertEquals(4, subseq.size());
 
 		RepresentableSequence subseq2 = parser.packOneWholeLineWithKardinalityModifier(seq);
-		assertNotNull("parsing for kardinality on : " + seq.toStringAll() + " should give us a subseq2.", subseq2);
+		assertNotNull(subseq2, "parsing for kardinality on : " + seq.toStringAll() + " should give us a subseq2.");
 		assertEquals(5, subseq2.size());		
 
 		Debug.temporary(this, seq.toStringAll());

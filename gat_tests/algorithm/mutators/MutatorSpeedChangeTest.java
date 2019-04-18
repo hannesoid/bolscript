@@ -1,18 +1,20 @@
 package algorithm.mutators;
 
 import config.Themes;
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 import algorithm.composers.kaida.Feature;
 import algorithm.composers.kaida.Individual;
 import algorithm.raters.RaterAverageSpeed;
 import bols.BolBase;
 import bols.Variation;
 
-public class MutatorSpeedChangeTest extends TestCase {
+public class MutatorSpeedChangeTest {
 
 	/*
 	 * Test method for 'algorithm.mutators.MutatorSpeedChange.mutate(Individual)'
 	 */
+	@Test
 	public void testMutate() {
 		try {
 		BolBase bolBase = new BolBase();	
@@ -26,14 +28,14 @@ public class MutatorSpeedChangeTest extends TestCase {
 		Feature avSpeed1 = rater.rate(in1);
 		
 		Individual in2 = in1.getCopyKeepBolSequenceStripFeatures();
-		assertEquals(in1.getVariation().getAsSequence().getDuration(),in2.getVariation().getAsSequence().getDuration(), "duration should be the same before")
+		assertEquals(in1.getVariation().getAsSequence().getDuration(),in2.getVariation().getAsSequence().getDuration(), "duration should be the same before");
 		System.out.println("Variaion before: " + in2.getVariation());
 		System.out.println("avSpeed of in1 before mutating: " + avSpeed1);
 		int nrOfRuns = 10;
 		for (int i = 0; i < nrOfRuns; i++) {
 			m.mutate(in2);
 			System.out.println("Variaion now: " + in2.getVariation());	
-			assertEquals(in1.getVariation().getAsSequence().getDuration(),in2.getVariation().getAsSequence().getDuration(), "duration should stay the same")
+			assertEquals(in1.getVariation().getAsSequence().getDuration(),in2.getVariation().getAsSequence().getDuration(), "duration should stay the same");
 		}
 		Feature avSpeed2 = rater.rate(in2);
 		System.out.println("avSpeed of in2 after mutating: " + avSpeed2);

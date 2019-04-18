@@ -2,7 +2,8 @@ package bols;
 
 import java.util.ArrayList;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
@@ -32,10 +33,10 @@ public class BolSequenceAdvancedTest {
 			BolSequence bolSeq = bolSeqs.get(s);
 			BolSequenceAdvanced seq = bolSeqsAdvanced.get(s);
 			
-			assertEquals(bolSeq.getDuration(), seq.getDuration(), "duration should equal that of the bolSeq")
+			assertEquals(bolSeq.getDuration(), seq.getDuration(), "duration should equal that of the bolSeq");
 			
 			for ( int i=0; i < bolSeq.getLength(); i++) {
-				assertTrue("should have same bols ", seq.getBol((int)i).equals(bolSeq.getBol(i)));
+				assertTrue(seq.getBol((int)i).equals(bolSeq.getBol(i)), "should have same bols ");
 			}
 		}
 	}
@@ -60,21 +61,21 @@ public class BolSequenceAdvancedTest {
 			BolSequence bolSeq = bolSeqs.get(s);
 			BolSequenceAdvanced seq = bolSeqsAdvanced.get(s);
 			
-			assertEquals(bolSeq.getLength(), seq.getLength(), "length should be same ")
+			assertEquals(bolSeq.getLength(), seq.getLength(), "length should be same ");
 			
 			int[] indexesOfBolsToRemove = {3,1};
 			System.out.println("before removing: " + seq.toString());
 			for ( int j=0; j < indexesOfBolsToRemove.length; j++) {
 				seq.removeBol(indexesOfBolsToRemove[j]);
 				System.out.println("removed " + indexesOfBolsToRemove[j] + ": " + seq.toString());
-				assertEquals(bolSeq.getLength()-(j+1),seq.getLength(), "length should have decreased")
+				assertEquals(bolSeq.getLength()-(j+1),seq.getLength(), "length should have decreased");
 			}
 			
-			assertEquals(bolSeq.getDuration(), seq.getDuration(), "duration should equal that of the bolSeq")
+			assertEquals(bolSeq.getDuration(), seq.getDuration(), "duration should equal that of the bolSeq");
 			
 			seq.removeBol(seq.getLength()-1);
-			assertEquals("duration should get smaller by the last bols duration ", (double) bolSeq.getDuration()-(1.0d / bolSeq.getBol(bolSeq.getLength()-1).getSpeed()),
-					seq.getDuration());
+			assertEquals((double) bolSeq.getDuration()-(1.0d / bolSeq.getBol(bolSeq.getLength()-1).getSpeed()),
+					seq.getDuration(), "duration should get smaller by the last bols duration ");
 		}
 	}
 	@Test
@@ -100,7 +101,7 @@ public class BolSequenceAdvancedTest {
 			
 			
 			
-			assertEquals(bolSeq.getLength(), seq.getLength(), "length should be same ")
+			assertEquals(bolSeq.getLength(), seq.getLength(), "length should be same ");
 			
 			
 			ArrayList<BolPositionedAndWeighted> bolsToInsert = new ArrayList<BolPositionedAndWeighted>();
@@ -113,7 +114,7 @@ public class BolSequenceAdvancedTest {
 				seq.insertBol(newBol);
 				System.out.println("after inserting: " + seq.toString());
 				
-				assertEquals(bolSeq.getDuration(), seq.getDuration(), "duration should equal that of the bolSeq")
+				assertEquals(bolSeq.getDuration(), seq.getDuration(), "duration should equal that of the bolSeq");
 			}
 						
 			BolPositionedAndWeighted newBol = new BolPositionedAndWeighted(BolBase.getStandard().getBolName("Na"), new PlayingStyle(1f,1f),seq.getDuration(),1);
@@ -122,8 +123,7 @@ public class BolSequenceAdvancedTest {
 			seq.appendBol(newBol);
 			System.out.println("after appending: " + seq.toString());
 			
-			assertEquals("duration should get greater by the new bols duration ", bolSeq.getDuration()+(1.0f / newBol.getSpeed()),
-					seq.getDuration());
+			assertEquals(bolSeq.getDuration()+(1.0f / newBol.getSpeed()), seq.getDuration(), "duration should get greater by the new bols duration ");
 			
 			newBol = new BolPositionedAndWeighted(BolBase.getStandard().getBolName("Na"), new PlayingStyle(1f,1f), 100, 1);
 			

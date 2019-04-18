@@ -4,7 +4,8 @@ import java.util.ArrayList;
 
 import config.Themes;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 import algorithm.composers.kaida.KaidaComposer;
 import algorithm.composers.kaida.Individual;
 import algorithm.statistics.FitnessStats;
@@ -12,7 +13,7 @@ import algorithm.tools.Timer;
 import bols.BolBase;
 import bols.tals.Teental;
 
-public class AlgorithmTest extends TestCase {
+public class AlgorithmTest {
 
 
 	public AlgorithmTest(String name) {
@@ -27,10 +28,11 @@ public class AlgorithmTest extends TestCase {
 		super.tearDown();
 	}
 	
+	@Test
 	public void testAlgorithmNew() throws Exception {
 		BolBase bolBase = new BolBase();
 		KaidaComposer al = new KaidaComposer(bolBase, new Teental(), Themes.getTheme01(bolBase));
-		assertEquals(1l, al.getGenerationNr(), "After Constructor al should have 1 generation")
+		assertEquals(1l, al.getGenerationNr(), "After Constructor al should have 1 generation");
 		try {
 			ArrayList<Individual> gen1 = al.getCurrentGeneration();
 		} catch (NullPointerException e) {
@@ -39,10 +41,11 @@ public class AlgorithmTest extends TestCase {
 		}
 	}
 	
+	@Test
 	public void testAlgorithmDoEvolution() throws Exception {
 		BolBase bolBase = new BolBase();
 		KaidaComposer al = new KaidaComposer(bolBase, new Teental(), Themes.getTheme01(bolBase));
-		assertEquals(1l, al.getGenerationNr(), "After Constructor al should have 1 generation")
+		assertEquals(1l, al.getGenerationNr(), "After Constructor al should have 1 generation");
 		int generationCount = 1;
 		//al.setDEBUG(true);
 		int nrOfRuns = 50;
@@ -59,11 +62,11 @@ public class AlgorithmTest extends TestCase {
 				fail("al threw some Exception");
 				System.exit(1);
 			}
-			assertEquals(++generationCount,al.getGenerationNr(), "one generation should be added after each cycle")
+			assertEquals(++generationCount,al.getGenerationNr(), "one generation should be added after each cycle");
 		}
 		t.stopAndPrint();
 		System.out.println("Per cycle: " + ((double)t.getDuration() / (double)nrOfRuns) + "ms");
-		assertTrue("The overall fitness after "+nrOfRuns+" iterations should be higher than after the first.",al.getGenerations().get(nrOfRuns-2).getStat(FitnessStats.SUMMEDFITNESS) > al.getGenerations().get(0).getStat(FitnessStats.SUMMEDFITNESS));
+		assertTrue(al.getGenerations().get(nrOfRuns-2).getStat(FitnessStats.SUMMEDFITNESS) > al.getGenerations().get(0).getStat(FitnessStats.SUMMEDFITNESS), "The overall fitness after "+nrOfRuns+" iterations should be higher than after the first.");
 			
 		
 	}

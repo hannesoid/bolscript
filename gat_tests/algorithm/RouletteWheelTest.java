@@ -1,7 +1,8 @@
 package algorithm;
 
 import config.Themes;
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 import algorithm.composers.kaida.Feature;
 import algorithm.composers.kaida.GoalSet;
 import algorithm.composers.kaida.Individual;
@@ -14,7 +15,7 @@ import algorithm.tools.RouletteWheel;
 import bols.BolBase;
 import bols.Variation;
 
-public class RouletteWheelTest extends TestCase {
+public class RouletteWheelTest {
 	BolBase bolBase;
 	protected void setUp() throws Exception {
 		super.setUp();
@@ -28,9 +29,10 @@ public class RouletteWheelTest extends TestCase {
 	/*
 	 * Test method for 'java.util.HashMap.get(Object)'
 	 */
+	@Test
 	public void testGet() throws Exception {
 		//Algorithm al = new Algorithm(bolBase, new Teental(bolBase), Variation.getTestVariation(bolBase));
-		//assertEquals(1l, al.getGenerationNr(), "After Constructor al should have 1 generation")
+		//assertEquals(1l, al.getGenerationNr(), "After Constructor al should have 1 generation");
 		Variation var1 = Themes.getTheme01(bolBase);
 		Variation var2 = Themes.getTheme01(bolBase);
 		Rater rater = new RaterAverageSpeed(bolBase);
@@ -60,12 +62,12 @@ public class RouletteWheelTest extends TestCase {
 		
 		System.out.println("getting(0.2f): " + wheel.get(new RouletteKey(0.2f)));
 		System.out.println("getting(0.7f): " + wheel.get(new RouletteKey(0.7f)));
-		assertEquals(in1, wheel.get(new RouletteKey(0.2f)), "0.2 should map to in1 !")
-		assertEquals(in2, wheel.get(new RouletteKey(0.7f)), "0.7 should map to in2 !")
+		assertEquals(in1, wheel.get(new RouletteKey(0.2f)), "0.2 should map to in1 !");
+		assertEquals(in2, wheel.get(new RouletteKey(0.7f)), "0.7 should map to in2 !");
 		
 		try {
 			for (int i = 0; i < 100; i++) {
-				assertNotNull("getRandom should not return null! ", wheel.getRandom());
+				assertNotNull(wheel.getRandom(), "getRandom should not return null! ");
 			}
 		} catch (Exception e) {
 			fail ("getRandom() should not throw an exception!");

@@ -2,13 +2,14 @@ package algorithm.raters;
 
 import java.util.ArrayList;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 import algorithm.composers.kaida.Feature;
 import algorithm.composers.kaida.Individual;
 import bols.BolBase;
 import bols.Variation;
 
-public class RaterDifferentFromBeforeTest extends TestCase {
+public class RaterDifferentFromBeforeTest {
 
 	BolBase bb;
 	
@@ -21,6 +22,7 @@ public class RaterDifferentFromBeforeTest extends TestCase {
 		super.tearDown();
 	}
 	
+	@Test
 	public void testRaterDifferentFromBefore() throws Exception {
 		RaterDifferentFromBefore rater = new RaterDifferentFromBefore(bb);	
 		
@@ -33,10 +35,10 @@ public class RaterDifferentFromBeforeTest extends TestCase {
 		previous.add(in1);
 		Feature f1 = rater.rate(in1, previous);
 		
-		assertEquals(0f,f1.value, "two similar vars should be rated 0 diff")
+		assertEquals(0f,f1.value, "two similar vars should be rated 0 diff");
 		
 		Feature f2 = rater.rate(in2, previous);
-		assertEquals(1f, f2.value, "two different vars should be rated 1 diff")
+		assertEquals(1f, f2.value, "two different vars should be rated 1 diff");
 		
 		
 	}

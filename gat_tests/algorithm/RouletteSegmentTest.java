@@ -1,13 +1,14 @@
 package algorithm;
 
 import config.Themes;
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 import algorithm.composers.kaida.Individual;
 import algorithm.tools.RouletteSegment;
 import bols.BolBase;
 import bols.Variation;
 
-public class RouletteSegmentTest extends TestCase {
+public class RouletteSegmentTest {
 
 	protected void setUp() throws Exception {
 		super.setUp();
@@ -16,6 +17,7 @@ public class RouletteSegmentTest extends TestCase {
 	/*
 	 * Test method for 'algorithm.RouletteSegment.equals(Object)'
 	 */
+	@Test
 	public void testIncludesAndEquals() throws Exception {
 		BolBase bolBase = new BolBase();
 		Variation var1 = Themes.getTheme01(bolBase);
@@ -28,8 +30,8 @@ public class RouletteSegmentTest extends TestCase {
 		System.out.println(rs1.toString());
 		System.out.println(rs2.toString());
 			
-		assertTrue("rs1 should 'equal' 0.2 ", rs1.equals(0.2));
-		assertTrue("rs2 should 'equal' 0.7 ", rs2.equals(0.7));		
+		assertTrue(rs1.equals(0.2), "rs1 should 'equal' 0.2 ");
+		assertTrue(rs2.equals(0.7), "rs2 should 'equal' 0.7 ");
 	}
 
 }

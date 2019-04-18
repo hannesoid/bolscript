@@ -4,7 +4,8 @@ import java.util.ArrayList;
 
 import config.Themes;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 import algorithm.composers.kaida.Feature;
 import algorithm.composers.kaida.GoalSet;
 import algorithm.composers.kaida.Individual;
@@ -15,7 +16,7 @@ import bols.PlayingStyle;
 import bols.SubSequence;
 import bols.Variation;
 
-public class FitnessRaterEuklidTest extends TestCase {
+public class FitnessRaterEuklidTest {
 
 	BolBase bb;
 	ArrayList<Rater> raters;
@@ -28,6 +29,7 @@ public class FitnessRaterEuklidTest extends TestCase {
 	/*
 	 * Test method for 'algorithm.raters.FitnessRaterEuklid.rate(Individual)'
 	 */
+	@Test
 	public void testRateIndividual() {
 		//set Raters:
 		raters = new ArrayList<Rater>();
@@ -65,9 +67,9 @@ public class FitnessRaterEuklidTest extends TestCase {
 		System.out.println("f1: " + f1 + ", f2: " + f2);
 		System.out.println("in1: " + in1);
 		System.out.println("in2: " + in2);
-		assertEquals(1.0f, f1.value, "f1 should be rated 1 ")
+		assertEquals(1.0f, f1.value, "f1 should be rated 1 ");
 		
-		assertTrue("f1 should be rated better than f2 ", f1.value>f2.value);
+		assertTrue(f1.value>f2.value, "f1 should be rated better than f2 ");
 		
 		goalSet.setGoalImportance(RaterSimilarEnd.class, 0.5f);
 		Individual in3 = in2.getCopyKeepBolSequenceStripFeatures();
@@ -75,11 +77,11 @@ public class FitnessRaterEuklidTest extends TestCase {
 		Feature f3 = rater.rate(in3);
 		System.out.println("f2: " + f2 + ", f3: " + f3);		
 
-		assertTrue("f3 should be rated better than f2, as similar end loses importance ", f3.value>f2.value);
+		assertTrue(f3.value>f2.value, "f3 should be rated better than f2, as similar end loses importance ");
 		
 		Feature f4 = rater.rate(in1.getCopyKeepBolSequenceStripFeatures());
 		System.out.println("f1: " + f1 + ", f4: " + f4);
-		assertEquals(f1.value, f4.value, "f1 should be rated same as f4, even if similar end loses importance ")
+		assertEquals(f1.value, f4.value, "f1 should be rated same as f4, even if similar end loses importance ");
 		
 		//////////////////////
 		//set GoalSet

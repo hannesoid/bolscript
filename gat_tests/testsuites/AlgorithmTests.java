@@ -1,7 +1,9 @@
 package testsuites;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 import algorithm.AlgorithmTest;
 import algorithm.IndividualTest;
 import algorithm.RouletteSegmentTest;

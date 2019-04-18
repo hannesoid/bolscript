@@ -23,6 +23,7 @@ public class RepresentableSequenceTest {
 	}
 	
 	/*
+	@Test
 	public void testGetBundled() {
 		//TODO ADAPT BUNDLING TO WORK WITH NEW ENCODING!!!
 		BolBase bb = BolBase.getStandard();
@@ -100,6 +101,7 @@ public class RepresentableSequenceTest {
 
 
 	@Disabled
+	@Test
 	public void testTruncating() {
 		String input = "Dha , Ge ( Dhin Na ) Dha Dha Tun Na ";
 		SequenceParser parser = new SequenceParser(0, null);
@@ -130,6 +132,7 @@ public class RepresentableSequenceTest {
 	}
 	
 	@Disabled
+	@Test
 	public void testLastAbsSpeedUnit() {
 		String[] input = new String[]{"Dha , Ge ( Dhin Na ) Dha Dha Tun Na ",
 				"Dha Ne Dha 4!",

@@ -1,10 +1,11 @@
 package algorithm.raters;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 import algorithm.tools.Timer;
 import bols.BolBase;
 
-public class PerformanceOfCalcsTest extends TestCase {
+public class PerformanceOfCalcsTest {
 	private static double lg2precalced = Math.log(2);
 	BolBase bb;
 	
@@ -13,6 +14,7 @@ public class PerformanceOfCalcsTest extends TestCase {
 		bb = new BolBase();
 	}
 	
+	@Test
 	public void testClassStuff () {
 		long nrOfRuns = 1000000;
 		Timer t0 = new Timer("doing nothing");
@@ -68,6 +70,7 @@ public class PerformanceOfCalcsTest extends TestCase {
 		t4.stopAndPrint();
 	}
 	
+	@Test
 	public void testLog2() {
 		long nrOfRuns = 10000;
 		Timer t0 = new Timer("doing nothing");

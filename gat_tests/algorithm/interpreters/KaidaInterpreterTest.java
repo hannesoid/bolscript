@@ -9,13 +9,15 @@ import config.Themes;
 
 import midi.MidiStation;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 import bols.BolBase;
 import bols.BolSequence;
 import bols.Variation;
 
-public class KaidaInterpreterTest extends TestCase {
+public class KaidaInterpreterTest {
 	
+	@Test
 	public void testInterpreter2Render() throws Exception {
 		BolBase bb = new BolBase();
 		Variation var1 = Themes.getTheme01(bb);
@@ -66,9 +68,9 @@ public class KaidaInterpreterTest extends TestCase {
 			Track track = midiSeq.createTrack();
 			BolSequence bolSeq = Interpreter2.renderToBolSequenceAndMidiTrack(var, track,0);
 			System.out.println("original dur: " + var.getDuration() + "interpreted dur: " + bolSeq.getDuration());
-			assertEquals("duration of " +var  +" should be a multiple of original duration ", 0.0, (bolSeq.getDuration()%var.getDuration()));
-			assertEquals("duration of " +var +" should be a 2xoriginal duration ", 2.0, (bolSeq.getDuration()/var.getDuration()));
-			assertEquals("duration of " +var + " in ticks should be ticksperbeat*duration " ,(double)MidiStation.TICKSPERBEAT*bolSeq.getDuration(), (double)track.ticks());			
+			assertEquals(0.0, (bolSeq.getDuration()%var.getDuration()), "duration of " +var  +" should be a multiple of original duration ");
+			assertEquals(2.0, (bolSeq.getDuration()/var.getDuration()), "duration of " +var +" should be a 2xoriginal duration ");
+			assertEquals((double)MidiStation.TICKSPERBEAT*bolSeq.getDuration(), (double)track.ticks(), "duration of " +var + " in ticks should be ticksperbeat*duration " );
 			midiSeq.deleteTrack(track);
 		}
 		
@@ -96,10 +98,10 @@ public class KaidaInterpreterTest extends TestCase {
 			Track track = midiSeq.createTrack();
 			BolSequence bolSeq = Interpreter2.renderToBolSequenceAndMidiTrack(var, track,0);
 			System.out.println("original dur: " + var.getDuration() + "interpreted dur: " + bolSeq.getDuration());
-			assertEquals("duration of " +var  +" should be a multiple of original duration ", 0.0, (bolSeq.getDuration()%var.getDuration()));
-			assertEquals("duration of " +var +" should be a 2xoriginal duration ", 2.0, (bolSeq.getDuration()/var.getDuration()));
-			assertEquals("duration of " +var +" should be 32 ", 32.0f, bolSeq.getDuration());
-			assertEquals("duration of " +var + " in ticks should be ticksperbeat*duration " ,(double)MidiStation.TICKSPERBEAT*bolSeq.getDuration(), (double)track.ticks());			
+			assertEquals(0.0, (bolSeq.getDuration()%var.getDuration()), "duration of " +var  +" should be a multiple of original duration ");
+			assertEquals(2.0, (bolSeq.getDuration()/var.getDuration()), "duration of " +var +" should be a 2xoriginal duration ");
+			assertEquals(32.0f, bolSeq.getDuration(), "duration of " +var +" should be 32 ");
+			assertEquals((double)MidiStation.TICKSPERBEAT*bolSeq.getDuration(), (double)track.ticks(), "duration of " +var + " in ticks should be ticksperbeat*duration " );
 			midiSeq.deleteTrack(track);
 		}
 		

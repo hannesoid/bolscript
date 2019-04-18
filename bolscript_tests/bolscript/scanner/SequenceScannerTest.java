@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
 public class SequenceScannerTest {
 
 
+	@Test
 	public void testSeveralInputsForSameTokenAssignment (String[] inputs, int[] expectedTokens, boolean ignoreWhiteSpaces) {
 		for (String input: inputs) {
 			Debug.temporary(this, "scanning: " + input);
@@ -92,25 +93,25 @@ public class SequenceScannerTest {
 		
 		SequenceScanner scanner = new SequenceScanner(input);
 		
-		assertEquals(scanner.nextToken().text, "3")
+		assertEquals(scanner.nextToken().text, "3");
 		scanner.nextToken();
-		assertEquals(scanner.nextToken().text, "3!")
+		assertEquals(scanner.nextToken().text, "3!");
 		scanner.nextToken();
-		assertEquals(scanner.nextToken().text, "3  !")
+		assertEquals(scanner.nextToken().text, "3  !");
 
 		input = "dha ge sihn sun dus";
 		
 		scanner = new SequenceScanner(input);
-		assertEquals(scanner.nextToken().text, "dha")
+		assertEquals(scanner.nextToken().text, "dha");
 		Debug.temporary(this, scanner.nextToken().text);
-		assertEquals(scanner.nextToken().text, "ge")
+		assertEquals(scanner.nextToken().text, "ge");
 		Debug.temporary(this, scanner.nextToken().text);
 		
-		assertEquals(scanner.nextToken().text, "sihn")
+		assertEquals(scanner.nextToken().text, "sihn");
 		Debug.temporary(this, scanner.nextToken().text);
-		assertEquals(scanner.nextToken().text, "sun")
+		assertEquals(scanner.nextToken().text, "sun");
 		Debug.temporary(this, scanner.nextToken().text);
-		assertEquals(scanner.nextToken().text, "dus")
+		assertEquals(scanner.nextToken().text, "dus");
 
 	}
 

@@ -2,7 +2,8 @@ package bolscript;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.junit.Before;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.Ignore;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
@@ -33,23 +34,26 @@ public class ReaderTest {
 	}
 
 	@Disabled
+	@Test
 	public void testInsertingOfBolBaseStandardReplacements() {
 		Packets packets = Parser.compilePacketsFromString(" Theme: Dha tIr kit tir kit Dha ");
 		Debug.out(packets);	
 	}
 	
 	@Disabled
+	@Test
 	public void testSplitIntoPackets() {
 		Packets packets = Parser.splitIntoPackets(Teental.TEENTAL);
 	}
 	
 	@Disabled
+	@Test
 	public void testFootNotes() {
 		String s = "A: Dha ge ti re ki te\n B: Dhin Na Ge \"Footnote A for test\" Na";
 		Packets packets = Parser.compilePacketsFromString(s);
 		for (Packet p:packets) {
 			if (p.getType() == PacketTypeDefinitions.FOOTNOTE) {
-				assertEquals("Footnote A for test", p.getValue(), "A should remain and not be inserted")
+				assertEquals("Footnote A for test", p.getValue(), "A should remain and not be inserted");
 			}
 		}
 	}

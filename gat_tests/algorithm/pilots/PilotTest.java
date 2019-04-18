@@ -2,7 +2,8 @@ package algorithm.pilots;
 
 import java.util.ArrayList;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 import algorithm.composers.kaida.GoalSet;
 import algorithm.raters.Rater;
 import algorithm.raters.RaterAverageSpeed;
@@ -11,7 +12,7 @@ import algorithm.raters.RaterSimilarEnd;
 import algorithm.raters.RaterSpeedStdDeviation;
 import bols.BolBase;
 import static algorithm.pilots.WayPoint.CurvePointTypes.*;
-public class PilotTest extends TestCase {
+public class PilotTest {
 	BolBase bb;
 	
 	protected void setUp() throws Exception {
@@ -22,6 +23,7 @@ public class PilotTest extends TestCase {
 	/*
 	 * Test method for 'algorithm.pilots.Pilot.updateGoalSet(GoalSet, long)'
 	 */
+	@Test
 	public void testUpdateGoalSet() {
 		Pilot p1 = new Pilot();
 		

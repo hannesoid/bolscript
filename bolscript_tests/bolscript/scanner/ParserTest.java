@@ -3,7 +3,8 @@ package bolscript.scanner;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 
-import org.junit.BeforeClass;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.Ignore;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Disabled;
@@ -33,13 +34,13 @@ public class ParserTest {
 		assertEquals("B", input.substring(
 				packets.get(0).getTextReference().start(),
 				packets.get(0).getTextReference().start()+1));
-		//assertEquals("")
+		//assertEquals("");
 		assertEquals(0, packets.get(0).getTextReference().start());
 		assertEquals(0, packets.get(0).getTextRefKey().start());
 		
 		
-		assertEquals(input.substring(packets.get(0).getTextRefValue().start(),packets.get(0).getTextRefValue().start()+1), "d")
-		assertEquals(input.substring(packets.get(1).getTextRefValue().start(),packets.get(1).getTextRefValue().start()+1), "t")
+		assertEquals(input.substring(packets.get(0).getTextRefValue().start(),packets.get(0).getTextRefValue().start()+1), "d");
+		assertEquals(input.substring(packets.get(1).getTextRefValue().start(),packets.get(1).getTextRefValue().start()+1), "t");
 		//assertEquals(5, packets.get(0).getTextRefValue().start());
 
 	}

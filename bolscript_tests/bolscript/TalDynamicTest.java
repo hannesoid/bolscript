@@ -1,7 +1,8 @@
 package bolscript;
 
 
-import org.junit.Before;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.Ignore;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
@@ -22,6 +23,7 @@ public class TalDynamicTest {
 	
 	
 	@Disabled
+	@Test
 	public void testFromFile() throws FileReadException{
 		TalDynamic tal = new TalDynamic("/Users/hannes/Desktop/teental.tal.txt", TalBaseDefault.getStandard());
 		System.out.println(tal.getName());

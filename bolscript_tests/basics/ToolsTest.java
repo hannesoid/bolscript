@@ -10,7 +10,7 @@ public class ToolsTest {
 	@Test
 	public void testFormatName() {
 		String s = "--TA tA, taTa-Dha";
-		assertEquals(Tools.formatName(s), "--Ta Ta, Tata-Dha")
+		assertEquals(Tools.formatName(s), "--Ta Ta, Tata-Dha");
 	}
 	
 }

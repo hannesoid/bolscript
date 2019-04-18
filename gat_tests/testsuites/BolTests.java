@@ -1,7 +1,9 @@
 package testsuites;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 import bols.BolBaseOldTests;
 import bols.BolSequenceAdvancedTest;
 import bols.BolSequenceTest;
