@@ -11,8 +11,6 @@ import org.junit.jupiter.api.Test;
 
 public class SequenceScannerTest {
 
-
-	@Test
 	public void testSeveralInputsForSameTokenAssignment (String[] inputs, int[] expectedTokens, boolean ignoreWhiteSpaces) {
 		for (String input: inputs) {
 			Debug.temporary(this, "scanning: " + input);

@@ -1,11 +1,12 @@
 package bols;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.BeforeAll;
+
 import org.junit.jupiter.api.Test;
 
 import basics.Debug;
@@ -16,7 +17,7 @@ public class BolSequenceTest {
 	BolBaseGeneral bb;
 
 	
-	@BeforeAll
+	@BeforeEach
 	public void setUp() throws Exception {
 		bb = BolBase.getStandard();
 	}
