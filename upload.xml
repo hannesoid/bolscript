@@ -3,8 +3,8 @@
 <project default="upload_nightly_to_google" name="uploads bolscript packages to google code">
 	<taskdef classname="net.bluecow.googlecode.ant.GoogleCodeUploadTask"  classpath="../3dparty/ant-googlecode-0.0.2.jar" name="gcupload"/>
 
-	<property file="version.num"/>
-	<property file="build.num" />
+	<property file="versionnum.properties"/>
+	<property file="buildnum.properties" />
 	<property file="build.properties" />
 	<property file="private.properties" />
 	<property file="changelog.properties" />

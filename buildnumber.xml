@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project default="echo" name="just increase buildnumber">
-	<buildnumber file="build.num"/>
+	<buildnumber file="buildnum.properties"/>
 	<target name="echo">
 		<echo message="build number: ${build.number}" />
 	</target>

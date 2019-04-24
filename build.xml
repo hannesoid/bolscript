@@ -9,8 +9,8 @@
 	<!--http://www.devdaily.com/blog/post/mac-os-x/sample-mac-jar-bundler-ant-build-script/-->
 	<!--ANT 1.7 is required-->
 
-	<property file="build.num"/>	
-	<property file="version.num"/>
+	<property file="buildnum.properties"/>
+	<property file="versionnum.properties"/>
 	
 	<property file="build.properties"/>
 
