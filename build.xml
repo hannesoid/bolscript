@@ -12,7 +12,7 @@
 	<property file="buildnum.properties"/>
 	<property file="versionnum.properties"/>
 	
-	<property file="build.properties"/>
+	<property file="gradle.properties"/>
 
 	<tstamp>
 		<format property="TODAY" pattern="yyyy-MM-dd HH:mm:ss" />
@@ -51,7 +51,7 @@
 
 	<target name="zip_resources" depends="generate_default_libraryfolder_from_mylibraryfolder">
 		<!-- zip all resources that shall be bundled in the distributed jar as resources.zip -->
-		<zip destfile="${resources.zip.completepath}" basedir="${dir.resources}" excludes="**/*.icns">
+		<zip destfile="${resources.zip.completepath}" basedir="src/main/resources" excludes="**/*.icns">
 		</zip>
 	</target>
 
