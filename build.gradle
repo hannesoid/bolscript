@@ -4,10 +4,11 @@
 
 plugins {
     id 'java'
-    id 'maven-publish'
+    id 'application'
 }
 
 repositories {
+    jcenter()
     mavenLocal()
     maven {
         url = 'http://repo.maven.apache.org/maven2'
@@ -18,16 +19,10 @@ dependencies {
     compile 'jakarta.xml.bind:jakarta.xml.bind-api:2.3.2'
     compile 'org.glassfish.jaxb:jaxb-runtime:2.3.2'
     compile 'org.swixml:swixml:2.6.20130530'
+    testImplementation 'junit:junit:4.12'
 }
 
 group = 'at.hannesoid'
 version = '1.0-SNAPSHOT'
 sourceCompatibility = '9'
-
-publishing {
-    publications {
-        maven(MavenPublication) {
-            from(components.java)
-        }
-    }
-}
+mainClassName = 'bolscript.MasterMac'
