@@ -3,7 +3,6 @@ package bols.tals;
 import java.util.ArrayList;
 
 import bols.BolBaseGeneral;
-import bols.Variation;
 import bolscript.sequences.RepresentableSequence;
 
 public interface Tal {
