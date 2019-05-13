@@ -18,9 +18,17 @@ repositories {
     // Use jcenter for resolving your dependencies.
     // You can declare any Maven/Ivy/file repository here.
     jcenter()
+    mavenLocal()
+    maven {
+        url = 'http://repo.maven.apache.org/maven2'
+    }
 }
 
 dependencies {
+    compile 'jakarta.xml.bind:jakarta.xml.bind-api:2.3.2'
+    compile 'org.glassfish.jaxb:jaxb-runtime:2.3.2'
+    compile 'org.swixml:swixml:2.6.20130530'
+
     // This dependency is found on compile classpath of this component and consumers.
     implementation 'com.google.guava:guava:27.0.1-jre'
 
@@ -29,4 +37,8 @@ dependencies {
 }
 
 // Define the main class for the application
-mainClassName = 'bolscript.App'
+group = 'at.hannesoid'
+version = '1.0-SNAPSHOT'
+sourceCompatibility = '9'
+mainClassName = 'bolscript.MasterMac'
+
