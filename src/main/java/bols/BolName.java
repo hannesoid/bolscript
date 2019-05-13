@@ -251,7 +251,7 @@ public class BolName implements NamedInLanguages {
 	public void setWellDefinedInBolBase(boolean wellDefinedInBolBase) {
 		this.wellDefinedInBolBase = wellDefinedInBolBase;
 	}
-	
+
 	/**
 	 * Formats a string according to the formatting rules of the language,
 	 * i.e. transliterated is formed to lower case, while simple is formated like a name with
@@ -259,10 +259,10 @@ public class BolName implements NamedInLanguages {
 	 * @param s
 	 * @param language
 	 * @return the formatted String
-	 * @deprecated
 	 */
+	@Deprecated
 	public static String formatString(String s, int language) {
-		switch (language) {	
+		switch (language) {
 		case (DEVANAGERI) :
 			return s;
 		case (TRANSLITERATION) :
